@@ -1,22 +1,15 @@
 {
   "name": "scorekort.golf",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "develop:backend": "yarn --cwd backend develop",
+    "develop:frontend": "wait-on http://localhost:1337/admin && yarn --cwd frontend develop",
+    "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -p develop:*"
   },
-  "dependencies": {
-    "@types/node": "18.15.5",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "eslint": "8.36.0",
-    "eslint-config-next": "13.2.4",
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.0.2"
+  "devDependencies": {
+    "npm-run-all": "4.1.5",
+    "wait-on": "5.2.1",
+    "cross-env": "7.0.3"
   }
 }
