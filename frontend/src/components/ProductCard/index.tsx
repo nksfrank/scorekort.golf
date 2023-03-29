@@ -1,8 +1,10 @@
 "use client";
+import { createStore } from "jotai";
+import { Provider } from "jotai/react";
 import Image from "next/image";
-import type { PropsWithChildren } from "react";
+import { PropsWithChildren, useRef } from "react";
 import { Show } from "../Show";
-import { ProductProvider, useProduct } from "./context";
+import { productAtom, useProduct } from "./context";
 import type { Product } from "./types";
 
 type Props = {
@@ -13,14 +15,16 @@ type Props = {
 };
 
 export function Card({ product, info, actions, image }: Props): JSX.Element {
+  const store = useRef(createStore()).current;
+  store.set(productAtom, product);
   return (
-    <ProductProvider product={product}>
+    <Provider store={store}>
       <article>
         <Show when={image}>{image!}</Show>
         <Show when={info}>{info!}</Show>
         <Show when={actions}>{actions!}</Show>
       </article>
-    </ProductProvider>
+    </Provider>
   );
 }
 
