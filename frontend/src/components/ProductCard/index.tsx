@@ -6,6 +6,7 @@ import { PropsWithChildren, useRef } from "react";
 import { Show } from "../Show";
 import { productAtom, useProduct } from "./context";
 import type { Product } from "./types";
+import { Button } from "../Button";
 
 type Props = {
   product: Product;
@@ -87,7 +88,7 @@ export function AddToCart() {
         <label htmlFor={`${id}-quantity`}>Quantity: </label>
         <input id={`${id}-quantity`} name="quantity" />
       </div>
-      <button onClick={handleClick}>Add To Cart</button>
+      <Button onClick={handleClick}>Add To Cart</Button>
     </div>
   );
 }
