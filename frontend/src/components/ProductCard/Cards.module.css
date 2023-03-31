@@ -1,0 +1,12 @@
+.cards {
+  display: grid;
+  width: 100%;
+  max-width: var(--layout-max-width);
+  grid-template-columns: repeat(auto-fill, minmax(332px, 1fr));
+  column-gap: 3rem;
+  row-gap: 4rem;
+}
+
+.cards .cell {
+  container: layout / inline-size;
+}

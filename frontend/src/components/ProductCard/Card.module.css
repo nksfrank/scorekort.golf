@@ -1,0 +1,73 @@
+.card {
+  --card-radius: 1.5rem;
+  --card-bg-clr-h: 0;
+  --card-bg-clr-s: 0%;
+  --card-bg-clr-l: 80%;
+  --card-bg-clr: hsl(
+    var(--card-bg-clr-h),
+    var(--card-bg-clr-s),
+    var(--card-bg-clr-l)
+  );
+  background-color: var(--card-bg-clr);
+  border-radius: var(--card-radius);
+  display: grid;
+  grid-template-rows: 100cqi 1fr 1fr;
+  grid-template-areas:
+    "image"
+    "info"
+    "actions";
+  max-width: var(--layout-max-width);
+}
+.images {
+  display: flex;
+  overflow-x: hidden;
+  border-top-right-radius: var(--card-radius);
+  border-top-left-radius: var(--card-radius);
+  aspect-ratio: 1/1;
+}
+.images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@container layout (330px < inline-size) {
+  .card {
+    background-color: violet;
+  }
+}
+@container layout (600px < inline-size) {
+  .card {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "image info"
+      "image actions";
+    background-color: red;
+  }
+  .card .images {
+    border-top-right-radius: initial;
+    border-top-left-radius: var(--card-radius);
+    border-bottom-left-radius: var(--card-radius);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --card-bg-clr-l: 13%;
+  }
+}
+.imageArea {
+  grid-area: image;
+}
+.infoArea {
+  grid-area: info;
+}
+.actionArea {
+  grid-area: actions;
+}
+.actions {
+  padding: 1rem 2rem 2rem;
+}
+.info {
+  padding: 1rem 2rem;
+}

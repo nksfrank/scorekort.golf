@@ -1,0 +1,6 @@
+.section {
+  container: layout / inline-size;
+}
+.section + .section {
+  margin-block: 4rem;
+}

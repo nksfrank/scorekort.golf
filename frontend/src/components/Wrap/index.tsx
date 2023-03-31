@@ -5,7 +5,7 @@ type Props = {
   wrap: JSX.Element;
   children: JSX.Element;
 };
-export function Wrap({ when, wrap, children }: Props): JSX.Element {
+export function Wrap({ when = true, wrap, children }: Props): JSX.Element {
   return useMemo(() => {
     if (typeof when === "function" ? when() : when) {
       return cloneElement(wrap, wrap.props, children);

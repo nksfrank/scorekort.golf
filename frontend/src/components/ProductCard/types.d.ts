@@ -4,8 +4,9 @@ export type Product = {
   description?: string;
   images?: { src: string; alt: string; width: number; height: number }[];
   price?: {
+    discount?: string;
     original?: number;
-    current: number;
+    final: number;
   };
   rating?: number;
   reviews?: number;
